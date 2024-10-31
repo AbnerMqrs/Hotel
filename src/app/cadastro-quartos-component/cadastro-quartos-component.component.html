@@ -1,0 +1,26 @@
+<div class="form-container">
+  <h2>Cadastro de Quartos</h2>
+  <form (ngSubmit)="cadastrarQuarto()">
+    <div class="form-group">
+      <label for="numero">Número do Quarto:</label>
+      <input type="number" id="numero" [(ngModel)]="numero" name="numero" required />
+    </div>
+
+    <div class="form-group">
+      <label for="tipo">Tipo de Quarto:</label>
+      <input type="text" id="tipo" [(ngModel)]="tipo" name="tipo" required />
+    </div>
+
+    <div class="form-group">
+      <label for="quantidadeDias">Quantidade de Dias:</label>
+      <input type="number" id="quantidadeDias" [(ngModel)]="quantidadeDias" name="quantidadeDias" min="1" required />
+    </div>
+
+    <div class="form-group">
+      <label for="valorDiaria">Valor da Diária:</label>
+      <input type="number" id="valorDiaria" [(ngModel)]="valorDiaria" name="valorDiaria" min="0" required />
+    </div>
+
+    <button type="submit" class="submit-button">Cadastrar Quarto</button>
+  </form>
+</div>

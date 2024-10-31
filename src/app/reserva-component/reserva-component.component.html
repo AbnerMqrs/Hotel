@@ -1,0 +1,28 @@
+<div class="form-container">
+  <h2>Fazer Reserva</h2>
+
+  <div class="form-group">
+    <label for="hospede">Selecione o Hóspede:</label>
+    <select id="hospede" [(ngModel)]="hospedeSelecionado" required>
+      <option *ngFor="let hospede of hospedes" [ngValue]="hospede">{{ hospede.nome }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="quarto">Selecione o Quarto:</label>
+    <select id="quarto" [(ngModel)]="quartoSelecionado" (change)="calcularValorTotal()" required>
+      <option *ngFor="let quarto of quartos" [ngValue]="quarto">{{ quarto.numero }} - {{ quarto.tipo }} (R$ {{ quarto.valorDiaria }})</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="quantidadeDias">Quantidade de Dias:</label>
+    <input type="number" id="quantidadeDias" [(ngModel)]="quantidadeDias" (change)="calcularValorTotal()" min="1" required />
+  </div>
+
+  <div class="form-group">
+    <strong>Valor Total: R$ {{ valorTotal.toFixed(2) }}</strong>
+  </div>
+
+  <button (click)="fazerReserva()" class="submit-button">Reservar</button>
+</div>
